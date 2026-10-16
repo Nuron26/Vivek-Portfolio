@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f4f4ef">
+<meta name="description" content="Vivek Kumar — first-year B.Tech Computer Science student learning by building with C++, DSA, web development, and AI-assisted development.">
+<meta property="og:title" content="Vivek Kumar | Student Developer">
+<meta property="og:description" content="Curious mind. Builder in progress.">
+<title>Vivek Kumar | Student Developer</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='28' fill='%2317211d'/><text x='50' y='70' font-size='62' text-anchor='middle' font-family='sans-serif' font-weight='800' fill='%23c7f36b'>v.</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4f4ef;--surface:#fff;--ink:#18221f;--muted:#5d6861;--line:#dfe3db;--green:#c7f36b;--deep:#4b7021;--dark:#17211d;--dm:#bbc6bd;--r:22px;--mx:50%;--my:50%}
+body.dark{--paper:#0f1612;--surface:#18221b;--ink:#f0f5ee;--muted:#b4c0b5;--line:#33423a;--dark:#0a100c;--deep:#b4dc75}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;transition:background .4s,color .4s;overflow-x:hidden}
+a{color:inherit}:focus-visible{outline:3px solid #6c972b;outline-offset:4px;border-radius:6px}
+h1,h2,h3,p{margin-top:0}.wrap{width:min(1100px,calc(100% - 40px));margin:0 auto}
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--green),#6fcf97);z-index:1000}
+.top{position:sticky;top:10px;z-index:500;display:flex;align-items:center;justify-content:space-between;gap:16px;margin:14px 0;padding:10px 12px 10px 20px;border:1px solid var(--line);border-radius:999px;background:color-mix(in srgb,var(--paper) 80%,transparent);backdrop-filter:blur(14px)}
+.brand{font-weight:800;letter-spacing:-.045em;text-decoration:none}.brand b{color:var(--deep)}
+.nav{display:flex;align-items:center;gap:6px}
+.nav a{padding:7px 12px;border-radius:999px;color:var(--muted);font-size:.88rem;font-weight:600;text-decoration:none;transition:.2s}
+.nav a:hover,.nav a.on{color:var(--ink);background:color-mix(in srgb,var(--green) 40%,transparent)}
+.pill{padding:8px 13px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);font:inherit;font-size:.8rem;font-weight:600;cursor:pointer;transition:.2s}
+.pill:hover{transform:translateY(-1px);border-color:var(--deep)}kbd{font:inherit;font-size:.72rem;padding:1px 6px;border:1px solid var(--line);border-radius:6px;opacity:.7}
+.menu{display:none}
+.hero{position:relative;overflow:hidden;display:grid;grid-template-columns:1.35fr .85fr;gap:36px;align-items:center;margin:20px 0 40px;padding:clamp(30px,6vw,68px);color:#f8fbf5;background:radial-gradient(circle at var(--mx) var(--my),#24402b 0,var(--dark) 55%);border-radius:30px;isolation:isolate}
+#net{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.hello{display:inline-flex;align-items:center;gap:9px;margin-bottom:18px;color:var(--dm);font-size:.9rem;font-weight:600}
+.hello i{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 var(--green);animation:ping 2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 10px transparent}100%{box-shadow:0 0 0 0 transparent}}
+h1{margin-bottom:20px;font-size:clamp(2.7rem,6vw,5rem);font-weight:800;letter-spacing:-.06em;line-height:1}
+h1 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em}
+h1 .w span{display:inline-block;transform:translateY(110%);animation:up .9s cubic-bezier(.2,.9,.2,1) forwards;animation-delay:calc(var(--i)*.09s + .2s)}
+@keyframes up{to{transform:none}}
+.shine{background:linear-gradient(100deg,var(--green) 30%,#fff 50%,var(--green) 70%) 0/250%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 4s linear infinite}
+@keyframes sh{to{background-position:-250%}}
+.type{min-height:1.7em;margin-bottom:26px;color:var(--dm);font-size:clamp(1rem,1.8vw,1.15rem)}.type b{color:#fff;font-weight:600}
+.type::after{content:"";display:inline-block;width:2px;height:1.1em;margin-left:3px;vertical-align:-3px;background:var(--green);animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:11px 20px;border:1px solid transparent;border-radius:999px;background:var(--green);color:#1b2811;font:inherit;font-size:.9rem;font-weight:700;text-decoration:none;cursor:pointer;transition:transform .25s,background .2s}
+.btn:hover{background:#d9ff8d}.btn.alt{background:transparent;border-color:#506157;color:#f8fbf5}.btn.alt:hover{background:#24322a}
+.term{border:1px solid #435148;border-radius:20px;background:rgba(10,16,12,.7);backdrop-filter:blur(8px);overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.5);transition:transform .15s}
+.dots{display:flex;gap:6px;padding:12px 14px;border-bottom:1px solid #2c3a31}.dots i{width:10px;height:10px;border-radius:50%;background:#ff6b6b}.dots i:nth-child(2){background:#ffd166}.dots i:nth-child(3){background:var(--green)}.dots span{margin-left:auto;color:#7f8d83;font-size:.72rem}
+pre{margin:0;padding:16px 18px;min-height:230px;font:.8rem/1.7 ui-monospace,Menlo,Consolas,monospace;color:#d6e4d6;white-space:pre-wrap}
+.k{color:#c7f36b}.s{color:#ffd48a}.c{color:#6f8076}.n{color:#8fd3ff}
+.tags{display:flex;flex-wrap:wrap;gap:8px;padding:0 18px 16px}.tag{padding:5px 10px;border:1px solid #46554b;border-radius:999px;color:#edf5e9;font-size:.75rem;font-weight:600}
+.marq{overflow:hidden;margin:0 0 70px;mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.marq div{display:flex;gap:44px;width:max-content;animation:mq 28s linear infinite;font-size:clamp(1.5rem,3.4vw,2.4rem);font-weight:800;letter-spacing:-.05em;color:var(--line)}
+.marq:hover div{animation-play-state:paused}.marq span{transition:color .2s}.marq span:hover{color:var(--deep)}
+@keyframes mq{to{transform:translateX(-50%)}}
+section{margin:0 0 84px;scroll-margin-top:90px}
+.head{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:26px}
+.kick{margin-bottom:8px;color:var(--deep);font-size:.9rem;font-weight:700}
+h2.t{margin:0;font-size:clamp(1.9rem,4vw,2.9rem);font-weight:800;letter-spacing:-.06em;line-height:1.08}
+.intro{max-width:430px;margin:0;color:var(--muted)}
+.card{position:relative;overflow:hidden;padding:27px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);transition:transform .2s,border-color .3s;will-change:transform}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--cx,50%) var(--cy,50%),color-mix(in srgb,var(--green) 38%,transparent),transparent 70%);opacity:0;transition:opacity .3s;pointer-events:none}
+.card:hover::before{opacity:1}.card:hover{border-color:var(--deep)}.card>*{position:relative}
+.card h3{margin-bottom:10px;font-size:1.2rem;letter-spacing:-.035em}.card p{margin:0;color:var(--muted);font-size:.95rem}
+.about{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.about p+p{margin-top:13px}
+.pr{display:grid;gap:18px}.pri{display:flex;gap:12px}.pri b{display:grid;place-items:center;flex:0 0 34px;height:34px;border-radius:11px;background:color-mix(in srgb,var(--green) 45%,transparent);color:var(--deep)}
+.pri strong{display:block;font-size:.95rem}.pri p{font-size:.84rem}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.lc{min-height:230px}
+.lc .ic{display:block;margin-bottom:20px;font-size:2rem}
+.bar{height:6px;margin-top:20px;border-radius:9px;background:var(--line);overflow:hidden}.bar i{display:block;height:100%;width:0;border-radius:9px;background:linear-gradient(90deg,#6fcf97,var(--green));transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.bl{margin-top:8px!important;font-size:.76rem!important}
+.proj{display:grid;grid-template-columns:.9fr 1.1fr;gap:30px;padding:clamp(25px,5vw,48px);border-radius:28px;background:color-mix(in srgb,var(--green) 22%,var(--surface));border:1px solid color-mix(in srgb,var(--green) 40%,var(--line))}
+.proj h2{font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-.07em;line-height:1.05;margin-bottom:14px}.proj p{color:var(--muted)}
+.st{display:inline-flex;gap:8px;align-items:center;margin-bottom:16px;padding:6px 12px;border-radius:999px;background:var(--green);color:#1b2811;font-size:.78rem;font-weight:700}
+.feats{display:grid;gap:12px;align-content:center}.ft{padding:18px 20px}.ft h3{font-size:1.02rem;margin-bottom:4px}.ft p{font-size:.88rem}
+.goals{display:grid;grid-template-columns:1fr 1fr;gap:16px}.gc{display:flex;gap:14px}
+.gi{display:grid;place-items:center;flex:0 0 42px;height:42px;border-radius:14px;background:color-mix(in srgb,var(--green) 45%,transparent);color:var(--deep);font-size:1.15rem;font-weight:800;transition:transform .4s}
+.gc:hover .gi{transform:rotate(360deg) scale(1.1)}
+.conn{display:flex;align-items:center;justify-content:space-between;gap:30px;padding:clamp(25px,4.5vw,46px);border-radius:28px;background:var(--dark);color:#f7faf4;position:relative;overflow:hidden}
+.conn::after{content:"";position:absolute;width:300px;height:300px;right:-80px;bottom:-140px;border-radius:50%;background:conic-gradient(from 0deg,var(--green),transparent 60%);opacity:.18;animation:spin 12s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.conn h2{margin-bottom:9px;font-size:clamp(1.9rem,4vw,2.8rem);letter-spacing:-.06em;line-height:1.1}.conn p{max-width:520px;margin:0;color:var(--dm)}
+.soc{display:flex;flex-wrap:wrap;gap:10px;position:relative;z-index:1}.soc a,.soc button{padding:10px 16px;border:1px solid #4a584f;border-radius:999px;background:none;color:#f7faf4;font:inherit;font-size:.84rem;font-weight:700;text-decoration:none;cursor:pointer;transition:.2s}
+.soc a:hover,.soc button:hover{border-color:var(--green);background:#24332a;transform:translateY(-2px)}
+footer{display:flex;justify-content:space-between;gap:15px;padding:24px 0 40px;color:var(--muted);font-size:.8rem}
+#top{position:fixed;right:22px;bottom:22px;z-index:900;width:50px;height:50px;border:1px solid var(--line);border-radius:50%;background:var(--surface);color:var(--ink);font-size:1.1rem;cursor:pointer;opacity:0;pointer-events:none;transform:translateY(10px);transition:.25s;box-shadow:0 8px 26px rgba(0,0,0,.14)}
+#top.v{opacity:1;pointer-events:auto;transform:none}
+.toast{position:fixed;left:50%;bottom:26px;z-index:2000;padding:10px 18px;border-radius:999px;background:var(--ink);color:var(--paper);font-size:.85rem;font-weight:600;transform:translate(-50%,90px);transition:.35s cubic-bezier(.3,1.4,.5,1)}.toast.on{transform:translate(-50%,0)}
+dialog{width:min(560px,calc(100% - 30px));padding:0;border:1px solid var(--line);border-radius:20px;background:var(--surface);color:var(--ink);box-shadow:0 40px 90px rgba(0,0,0,.35)}
+dialog::backdrop{background:rgba(8,14,10,.55);backdrop-filter:blur(5px)}
+dialog input{width:100%;padding:18px 20px;border:0;border-bottom:1px solid var(--line);background:none;color:var(--ink);font:inherit;font-size:1rem;outline:0}
+dialog ul{list-style:none;margin:0;padding:8px;max-height:300px;overflow:auto}
+dialog li{padding:10px 12px;border-radius:10px;cursor:pointer;font-size:.92rem}dialog li.sel{background:var(--green);color:#1b2811}
+#cur{position:fixed;top:0;left:0;z-index:3000;width:34px;height:34px;margin:-17px 0 0 -17px;border:1.5px solid var(--deep);border-radius:50%;pointer-events:none;opacity:0;transition:width .2s,height .2s,margin .2s,background .2s,opacity .3s}
+#cur.h{width:56px;height:56px;margin:-28px 0 0 -28px;background:color-mix(in srgb,var(--green) 35%,transparent)}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
+@media(max-width:860px){.hero,.about,.proj{grid-template-columns:1fr}.grid3{grid-template-columns:1fr 1fr}.head,.conn{flex-direction:column;align-items:flex-start}}
+@media(max-width:640px){.menu{display:inline-block}.nav{position:absolute;top:calc(100% + 8px);left:0;right:0;flex-direction:column;align-items:stretch;padding:10px;border:1px solid var(--line);border-radius:20px;background:var(--surface);display:none}.nav.open{display:flex}.top{position:sticky}.grid3,.goals{grid-template-columns:1fr}footer{flex-direction:column}kbd{display:none}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}html{scroll-behavior:auto}h1 .w span{transform:none}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div id="bar"></div><div id="cur"></div><div class="toast" id="toast" role="status"></div>
+<div class="wrap">
+<header class="top">
+  <a class="brand" href="#home" aria-label="Vivek Kumar home">vivek<b>.</b></a>
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <a href="#about">About</a><a href="#learning">Learning</a><a href="#teamflow">TEAMFLOW</a><a href="#goals">Goals</a><a href="#connect">Connect</a>
+  </nav>
+  <div style="display:flex;gap:8px">
+    <button class="pill" id="cmd" aria-label="Open quick menu">Quick menu <kbd>Ctrl K</kbd></button>
+    <button class="pill" id="theme" aria-pressed="false">☾</button>
+    <button class="pill menu" id="menu" aria-label="Toggle menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home" aria-labelledby="ht" style="margin-bottom:40px;scroll-margin-top:90px">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div>
+    <p class="hello"><i></i>First-year B.Tech CSE, learning by building</p>
+    <h1 id="ht"><span class="w"><span style="--i:0">Curious</span></span> <span class="w"><span style="--i:1">mind.</span></span><br><span class="w"><span style="--i:2" class="shine">Builder</span></span> <span class="w"><span style="--i:3" class="shine">in</span></span> <span class="w"><span style="--i:4" class="shine">progress.</span></span></h1>
+    <p class="type" id="type" aria-live="off"></p>
+    <div class="actions">
+      <a class="btn mag" href="#learning">Explore my journey ↘</a>
+      <a class="btn alt mag" href="https://www.linkedin.com/in/vivek-kumar-4789a7438" target="_blank" rel="noopener noreferrer">Connect with me ↗</a>
+    </div>
+  </div>
+  <aside class="term" id="term" aria-label="Code being typed: a small C++ program">
+    <div class="dots"><i></i><i></i><i></i><span>journey.cpp</span></div>
+    <pre id="code" aria-hidden="true"></pre>
+    <div class="tags"><span class="tag">C++</span><span class="tag">DSA</span><span class="tag">HTML &amp; CSS</span><span class="tag">Git &amp; GitHub</span><span class="tag">Vibe coding</span></div>
+  </aside>
+</section>
+
+<div class="marq" aria-hidden="true"><div id="mq"></div></div>
+
+<section id="about" aria-labelledby="at">
+  <div class="head rv"><div><p class="kick">A little about me</p><h2 class="t" id="at">Learning today.<br>Building for tomorrow.</h2></div><p class="intro">I’m at the beginning of my developer journey, focused on consistency, fundamentals, and making steady progress.</p></div>
+  <div class="about">
+    <article class="card tilt rv"><h3>Who I am</h3>
+      <p>I’m Vivek, a first-year B.Tech Computer Science student. Right now, I’m learning how software works, from programming logic and problem-solving to the building blocks of websites.</p>
+      <p>I’m exploring projects as a way to connect what I learn with practical use. I’m also experimenting with AI-assisted development, or vibe coding, while aiming to understand and take responsibility for the code behind the result.</p>
+      <p>This site is a snapshot of my journey, not a claim that I know everything already. I want to keep improving, document what I learn, and build things that become more useful with time.</p></article>
+    <aside class="card pr rv">
+      <div class="pri"><b>1</b><div><strong>Build strong fundamentals</strong><p>Understand programming, data structures, and the reasoning behind solutions.</p></div></div>
+      <div class="pri"><b>2</b><div><strong>Learn by building</strong><p>Turn concepts into small projects, then improve them through feedback and testing.</p></div></div>
+      <div class="pri"><b>3</b><div><strong>Share the process</strong><p>Use GitHub and professional platforms to document progress and connect with other builders.</p></div></div>
+    </aside>
+  </div>
+</section>
+
+<section id="learning" aria-labelledby="lt">
+  <div class="head rv"><div><p class="kick">My learning path</p><h2 class="t" id="lt">What I’m working on</h2></div><p class="intro">My current focus is on getting the basics right and gradually turning them into practical skills.</p></div>
+  <div class="grid3">
+    <article class="card lc tilt rv"><span class="ic" aria-hidden="true">⚙️</span><h3>C++ &amp; problem-solving</h3><p>Practising core C++ concepts, arrays, vectors, loops, and basic data-structure and algorithm problems.</p><div class="bar"><i data-w="38"></i></div><p class="bl">In progress: basics first</p></article>
+    <article class="card lc tilt rv"><span class="ic" aria-hidden="true">🎨</span><h3>Frontend development</h3><p>Learning how HTML structures a page and how CSS creates clean, responsive layouts and interfaces.</p><div class="bar"><i data-w="52"></i></div><p class="bl">In progress: HTML, CSS, JS</p></article>
+    <article class="card lc tilt rv"><span class="ic" aria-hidden="true">🤖</span><h3>GitHub &amp; AI-assisted building</h3><p>Exploring version control, documenting work, and using AI tools thoughtfully to move from an idea to a working prototype.</p><div class="bar"><i data-w="30"></i></div><p class="bl">In progress: Git habits</p></article>
+  </div>
+</section>
+
+<section id="teamflow" aria-labelledby="tt">
+  <div class="proj rv">
+    <div>
+      <span class="st">Idea · Learning project</span>
+      <p class="kick">A concept I’m exploring</p>
+      <h2 id="tt">Meet TEAMFLOW.</h2>
+      <p>TEAMFLOW is an early project idea for a shared workspace where teams can organize tasks, coordinate projects, and keep important work in one place.</p>
+      <p>Team work gets scattered across messages, task lists, files, and updates. TEAMFLOW imagines bringing those pieces into a clearer workflow. It’s an idea in progress, not a finished product, and a way for me to practise product thinking, interface design, and eventually full-stack development.</p>
+    </div>
+    <div class="feats" aria-label="TEAMFLOW concept features">
+      <div class="card ft"><h3>Task organization</h3><p>Plan work, set priorities, and track progress.</p></div>
+      <div class="card ft"><h3>Team workspaces</h3><p>Give each team a home for members and projects.</p></div>
+      <div class="card ft"><h3>Personal to-do</h3><p>Keep private reminders separate from team responsibilities.</p></div>
+      <div class="card ft"><h3>Collaboration, with context</h3><p>Make updates and next steps easier to follow.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="goals" aria-labelledby="gt">
+  <div class="head rv"><div><p class="kick">Looking ahead</p><h2 class="t" id="gt">Small steps. Bigger goals.</h2></div><p class="intro">I’m working toward long-term growth by concentrating on habits and skills I can build consistently.</p></div>
+  <div class="goals">
+    <article class="card gc tilt rv"><span class="gi" aria-hidden="true">↗</span><div><h3>Become a better problem-solver</h3><p>Strengthen my computer science foundations and learn to approach problems methodically.</p></div></article>
+    <article class="card gc tilt rv"><span class="gi" aria-hidden="true">⌘</span><div><h3>Create practical projects</h3><p>Move beyond tutorials by building, testing, and improving projects of my own.</p></div></article>
+    <article class="card gc tilt rv"><span class="gi" aria-hidden="true">◎</span><div><h3>Prepare for opportunities</h3><p>Develop skills, project experience, and a public record of work that can support future internships.</p></div></article>
+    <article class="card gc tilt rv"><span class="gi" aria-hidden="true">✳</span><div><h3>Use AI with understanding</h3><p>Learn how to prompt, review generated code, test assumptions, and make informed technical decisions.</p></div></article>
+  </div>
+</section>
+
+<section id="connect" aria-labelledby="ct">
+  <div class="conn rv">
+    <div><p class="kick" style="color:var(--green)">Find me online</p><h2 id="ct">Let’s connect and learn.</h2><p>I’m sharing a work in progress. Follow along as I learn, build projects, and make the next version better.</p></div>
+    <div class="soc">
+      <a class="mag" href="https://github.com/Nuron26" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      <a class="mag" href="https://www.linkedin.com/in/vivek-kumar-4789a7438" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+      <a class="mag" href="https://x.com/VicThakur26" target="_blank" rel="noopener noreferrer">X ↗</a>
+      <button class="mag" id="share" type="button">Copy site link</button>
+    </div>
+  </div>
+</section>
+</main>
+<button id="top" type="button" aria-label="Back to top">↑</button>
+<footer><span>© <span id="yr">2026</span> Vivek Kumar</span><span>Built with HTML, CSS &amp; JavaScript. A work in progress.</span></footer>
+</div>
+
+<dialog id="pal" aria-label="Quick menu"><input id="pq" placeholder="Jump to a section or run an action…" aria-label="Search actions" autocomplete="off"><ul id="pl" role="listbox"></ul></dialog>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const RM=matchMedia("(prefers-reduced-motion:reduce)").matches,FINE=matchMedia("(pointer:fine)").matches;
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+const toast=m=>{const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove("on"),2000)};
+
+/* Theme */
+const th=$("#theme");
+function setTheme(d,msg){document.body.classList.toggle("dark",d);th.textContent=d?"☀":"☾";th.setAttribute("aria-pressed",d);th.setAttribute("aria-label",d?"Switch to light mode":"Switch to dark mode");document.querySelector('meta[name=theme-color]').content=d?"#0f1612":"#f4f4ef";store.set("vk-theme",d?"dark":"light");if(msg)toast(d?"Dark mode on":"Light mode on")}
+const saved=store.get("vk-theme");setTheme(saved?saved==="dark":matchMedia("(prefers-color-scheme:dark)").matches);
+th.onclick=()=>setTheme(!document.body.classList.contains("dark"),1);
+
+/* Mobile menu + active link + progress */
+const nav=$("#nav"),mb=$("#menu");
+mb.onclick=()=>{const o=nav.classList.toggle("open");mb.setAttribute("aria-expanded",o)};
+nav.onclick=e=>{if(e.target.tagName==="A"){nav.classList.remove("open");mb.setAttribute("aria-expanded",false)}};
+const links=$$(".nav a"),secs=links.map(a=>$(a.getAttribute("href")));
+function onScroll(){const h=document.documentElement,p=h.scrollHeight-innerHeight;$("#bar").style.width=(p>0?scrollY/p*100:0)+"%";$("#top").classList.toggle("v",scrollY>500);
+  let cur=-1;secs.forEach((s,i)=>{if(s.getBoundingClientRect().top<innerHeight*.4)cur=i});links.forEach((a,i)=>a.classList.toggle("on",i===cur))}
+addEventListener("scroll",onScroll,{passive:true});onScroll();
+$("#top").onclick=()=>scrollTo({top:0,behavior:RM?"auto":"smooth"});
+$("#yr").textContent=new Date().getFullYear();
+
+/* Reveal + progress bars */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");e.target.querySelectorAll("[data-w]").forEach(b=>b.style.width=b.dataset.w+"%");io.unobserve(e.target)}}),{threshold:.15});
+$$(".rv").forEach((el,i)=>{el.style.transitionDelay=(i%3)*80+"ms";io.observe(el)});
+
+/* Marquee */
+const skills=["C++","DSA","HTML","CSS","JavaScript","Git","GitHub","Problem solving","Vibe coding","TEAMFLOW"];
+$("#mq").innerHTML=[...skills,...skills].map(s=>`<span>${s}</span>`).join("");
+
+/* Typing headline */
+const phr=["Learning <b>C++</b> and problem-solving.","Designing <b>clean, responsive</b> web pages.","Prototyping <b>TEAMFLOW</b>, one task at a time.","Using <b>AI</b> while understanding the code."];
+const ty=$("#type");let pi=0,ci=0,del=false;
+function strip(h){return h.replace(/<[^>]+>/g,"")}
+function tick(){const full=phr[pi],plain=strip(full);
+  if(RM){ty.innerHTML=full;return}
+  ci+=del?-1:1;
+  let out="",n=0,tag=false;for(const ch of full){if(ch==="<")tag=true;if(!tag){if(n>=ci)break;n++}out+=ch;if(ch===">")tag=false}
+  ty.innerHTML=out+(out.includes("<b>")&&!out.includes("</b>")?"</b>":"");
+  let d=del?25:55;if(!del&&ci>=plain.length){del=true;d=1600}else if(del&&ci<=0){del=false;pi=(pi+1)%phr.length;d=350}
+  setTimeout(tick,d)}
+setTimeout(tick,900);
+
+/* Code typewriter */
+const src=`<span class="c">// my journey so far</span>
+<span class="k">#include</span> <span class="s">&lt;iostream&gt;</span>
+<span class="k">#include</span> <span class="s">&lt;vector&gt;</span>
+
+<span class="k">int</span> <span class="n">main</span>() {
+  std::vector&lt;<span class="k">int</span>&gt; steps = {1, 2, 3};
+  <span class="k">for</span> (<span class="k">int</span> s : steps) {
+    <span class="n">learn</span>(); <span class="n">build</span>(); <span class="n">repeat</span>();
+  }
+  std::cout &lt;&lt; <span class="s">"Hello, world!"</span>;
+}`;
+const code=$("#code");
+if(RM)code.innerHTML=src;else{let i=0;const go=()=>{let tag=false,j=i;while(j<src.length){const c=src[j];if(c==="<")tag=true;j++;if(c===">")tag=false;if(!tag)break}i=j;code.innerHTML=src.slice(0,i);if(i<src.length)setTimeout(go,22+Math.random()*30)};setTimeout(go,1200)}
+
+/* Particle network */
+const cv=$("#net"),cx=cv.getContext("2d"),hero=$("#home");let W,H,pts=[],mouse={x:-999,y:-999},vis=true;
+function size(){const r=hero.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2);W=r.width;H=r.height;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0);
+  pts=Array.from({length:Math.round(Math.min(90,W*H/12000))},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4}))}
+function draw(){if(vis){cx.clearRect(0,0,W,H);
+  for(const p of pts){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+    const dx=p.x-mouse.x,dy=p.y-mouse.y,d=Math.hypot(dx,dy);if(d<130){p.x+=dx/d*1.4;p.y+=dy/d*1.4}
+    cx.fillStyle="rgba(199,243,107,.8)";cx.beginPath();cx.arc(p.x,p.y,1.8,0,6.3);cx.fill()}
+  for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const a=pts[i],b=pts[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<115){cx.strokeStyle=`rgba(199,243,107,${.28*(1-d/115)})`;cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke()}}}
+  if(!RM)requestAnimationFrame(draw)}
+size();addEventListener("resize",size);draw();if(RM){cx.clearRect(0,0,W,H);draw()}
+new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(hero);
+hero.addEventListener("pointermove",e=>{const r=hero.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;hero.style.setProperty("--mx",mouse.x+"px");hero.style.setProperty("--my",mouse.y+"px")});
+hero.addEventListener("pointerleave",()=>mouse.x=mouse.y=-999);
+
+/* Tilt, spotlight, magnetic buttons, cursor ring */
+if(FINE&&!RM){
+  $$(".tilt,.term").forEach(el=>{el.addEventListener("pointermove",e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+    el.style.transform=`perspective(900px) rotateX(${(.5-y)*7}deg) rotateY(${(x-.5)*9}deg) translateY(-3px)`});
+    el.addEventListener("pointerleave",()=>el.style.transform="")});
+  $$(".mag").forEach(el=>{el.addEventListener("pointermove",e=>{const r=el.getBoundingClientRect();el.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.25}px,${(e.clientY-r.top-r.height/2)*.35}px)`});
+    el.addEventListener("pointerleave",()=>el.style.transform="")});
+  const cur=$("#cur");let tx=0,ty2=0,x=0,y=0;
+  addEventListener("pointermove",e=>{tx=e.clientX;ty2=e.clientY;cur.style.opacity=1;cur.classList.toggle("h",!!e.target.closest("a,button,input,li"))});
+  (function f(){x+=(tx-x)*.2;y+=(ty2-y)*.2;cur.style.transform=`translate(${x}px,${y}px)`;requestAnimationFrame(f)})()}
+$$(".card").forEach(c=>c.addEventListener("pointermove",e=>{const r=c.getBoundingClientRect();c.style.setProperty("--cx",e.clientX-r.left+"px");c.style.setProperty("--cy",e.clientY-r.top+"px")}));
+
+/* Confetti burst */
+function burst(x,y){if(RM)return;for(let i=0;i<18;i++){const d=document.createElement("i"),a=Math.random()*6.28,s=40+Math.random()*70;
+  d.style.cssText=`position:fixed;left:${x}px;top:${y}px;width:7px;height:7px;border-radius:2px;background:${["#c7f36b","#6fcf97","#ffd166","#8fd3ff"][i%4]};z-index:3000;pointer-events:none`;document.body.appendChild(d);
+  d.animate([{transform:"translate(0,0) rotate(0)",opacity:1},{transform:`translate(${Math.cos(a)*s}px,${Math.sin(a)*s+30}px) rotate(${Math.random()*540}deg)`,opacity:0}],{duration:800,easing:"cubic-bezier(.2,.8,.3,1)"}).onfinish=()=>d.remove()}}
+
+/* Quick menu (Ctrl/Cmd + K) */
+const pal=$("#pal"),pq=$("#pq"),pl=$("#pl");
+const acts=[["Go to About",()=>go("#about")],["Go to Learning",()=>go("#learning")],["Go to TEAMFLOW",()=>go("#teamflow")],["Go to Goals",()=>go("#goals")],["Go to Connect",()=>go("#connect")],["Toggle dark mode",()=>setTheme(!document.body.classList.contains("dark"),1)],["Open GitHub",()=>open("https://github.com/Nuron26","_blank","noopener")],["Open LinkedIn",()=>open("https://www.linkedin.com/in/vivek-kumar-4789a7438","_blank","noopener")],["Open X",()=>open("https://x.com/VicThakur26","_blank","noopener")],["Copy site link",()=>share()]];
+let list=[],sel=0;
+function go(h){$(h).scrollIntoView({behavior:RM?"auto":"smooth"})}
+function showList(){const q=pq.value.toLowerCase();list=acts.filter(a=>a[0].toLowerCase().includes(q));sel=Math.min(sel,Math.max(0,list.length-1));
+  pl.innerHTML=list.length?list.map((a,i)=>`<li role="option" class="${i===sel?"sel":""}" data-i="${i}">${a[0]}</li>`).join(""):'<li>No match. Try “goals” or “dark”.</li>'}
+function run(i){const a=list[i];if(a){pal.close();a[1]()}}
+function openPal(){pq.value="";sel=0;showList();pal.showModal();pq.focus()}
+$("#cmd").onclick=openPal;
+addEventListener("keydown",e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){e.preventDefault();pal.open?pal.close():openPal()}});
+pq.oninput=()=>{sel=0;showList()};
+pq.onkeydown=e=>{if(e.key==="ArrowDown"){e.preventDefault();sel=(sel+1)%list.length;showList()}else if(e.key==="ArrowUp"){e.preventDefault();sel=(sel-1+list.length)%list.length;showList()}else if(e.key==="Enter")run(sel)};
+pl.onclick=e=>{const li=e.target.closest("[data-i]");if(li)run(+li.dataset.i)};
+pal.addEventListener("click",e=>{if(e.target===pal)pal.close()});
+function share(){const u=location.href;(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(()=>toast("Link copied"),()=>toast("Copy the link from the address bar"))}
+$("#share").onclick=share;
+</script>
+</body>
+</html>
